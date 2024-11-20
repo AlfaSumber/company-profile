@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pemesanan Suku Cadang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/company-logo.png" alt="Logo Perusahaan">
+            </div>
+            <h1>CV ALFA SUMBER TEKNIK</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="form-section">
+        <div class="container">
+            <h2>Formulir Pemesanan AC</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon</label>
+                    <input type="tel" id="telepon" name="telepon" required>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea id="alamat" name="alamat" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="suku-cadang">Barang yang Dipesan</label>
+                    <input type="text" id="suku-cadang" name="suku-cadang" required>
+                </div>
+                <div class="form-group">
+                    <label for="pk">Jumlah PK</label>
+                    <select id="pk" name="pk" required>
+                        <option value="0.5">0.5 PK</option>
+                        <option value="1">1 PK</option>
+                        <option value="1.5">1.5 PK</option>
+                        <option value="2">2 PK</option>
+                        <option value="2.5">2.5 PK</option>
+                        <option value="3">3 PK</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Pesanan</label>
+                    <input type="number" id="jumlah" name="jumlah" required>
+                </div>
+                <button type="submit" class="submit-btn">Pesan Sekarang</button>
+            </form>
+        </div>
+    </section>
+    <div id="notification" class="notification">
+        <span class="checkmark">&#10003;</span> Pesanan berhasil, kami akan merespon secepat mungkin.
+    </div>
+	
+	  <div class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Address</h3>
+                    <p>Kemandungan,Jl.Kolonel Sugiono no.69-71, Kemandungan Kota Tegal</p>
+                </div>
+                <div class="contact-item">
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/6287885755512">+62 878-8575-5512</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Telephone</h3>
+                    <p>+6281911555541</p>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <footer class="footer">
+        <div class="container">
+            &copy; 2024 Alfa Sumber Teknik. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const telepon = document.getElementById('telepon').value;
+            const alamat = document.getElementById('alamat').value;
+            const sukuCadang = document.getElementById('suku-cadang').value;
+            const pk = document.getElementById('pk').value;
+            const jumlah = document.getElementById('jumlah').value;
+
+            const whatsappMessage = `Halo, saya ingin memesan suku cadang dengan rincian sebagai berikut:%0A
+Nama: ${nama}%0A
+Email: ${email}%0A
+Telepon: ${telepon}%0A
+Alamat: ${alamat}%0A
+Barang yang Dipesan: ${sukuCadang}%0A
+Jumlah PK: ${pk}%0A
+Jumlah: ${jumlah}`;
+
+            const whatsappUrl = `https://wa.me/6282313228813?text=${whatsappMessage}`;
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
